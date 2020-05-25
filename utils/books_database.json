@@ -1,8 +1,8 @@
 {
     "Books": [
         {
-            "Title": "LOTR1",
-            "Author": "Tolkien2",
+            "Title": "Lord of the Rings",
+            "Author": "Tolkien",
             "Read": true
         }
     ]

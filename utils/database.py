@@ -12,7 +12,7 @@ def book_read(user_rb_title):
                 elif n["Read"] == True:
                     print(f"{user_rb_title} is already read")
 
-def books_list():
+def book_list():
     for n in books:
         if n["Read"] == True:
             check = "Book is finished."
@@ -28,4 +28,4 @@ def book_delete(user_to_remove):
         for n in books:
             if n["Title"] == user_to_remove:
                 books.remove(n)
-
+                print("Book has been removed from the list.")

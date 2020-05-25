@@ -23,14 +23,14 @@ def book_read(user_rb_title):
             books_databaselist.writelines(n)
 
 
-def books_list():
+def book_list():
     with open(Books_list, "r") as books_databaselist:
         for n in books_databaselist.readlines():
             title, author, status = n.split(",")
             if status.strip() == 'False':
                 status_1 = "Not yet finished."
             elif status.strip() == 'True':
-                status_1 = "Book finished"
+                status_1 = "Book finished."
             else:
                 return ''
             print(f'{title} by {author}. {status_1}')
@@ -45,6 +45,7 @@ def book_delete(user_to_remove):
             title, author, status = n.split(",")
             if title == user_to_remove:
                 None
+                print("Book has been removed from the list.")
             else:
                 temp_list.append(f'{title},{author},{status.strip()}\n')
     with open(Books_list, "w") as books_databaselist:
