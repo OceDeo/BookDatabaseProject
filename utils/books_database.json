@@ -1,0 +1,9 @@
+{
+    "Books": [
+        {
+            "Title": "LOTR1",
+            "Author": "Tolkien2",
+            "Read": true
+        }
+    ]
+}
