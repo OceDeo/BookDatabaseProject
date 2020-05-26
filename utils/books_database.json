@@ -4,6 +4,16 @@
             "Title": "Lord of the Rings",
             "Author": "Tolkien",
             "Read": true
+        },
+        {
+            "Title": "Krew Elfow",
+            "Author": "Sapkowski",
+            "Read": false
+        },
+        {
+            "Title": "mordeczko",
+            "Author": "eloneiro",
+            "Read": false
         }
     ]
 }

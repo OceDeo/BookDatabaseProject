@@ -1,26 +1,28 @@
 
-from utils import database_json, database_csv, database
+from utils import database_json, database_csv, database, database_sql
 
 USER_CHOICE = """
-- "a" to add a new book
-- "l" to list all books
-- "r" to mark a book as read
-- "d" to delete a book
-- "q" to go back / quit
+- a - Add a new book
+- l - List all books
+- r - Mark a book as read
+- d - Delete a book
+- b - Go back to database type selection
+- q - EXIT
 Enter: """
 
 user_input_selection = """Which database type you'd like to use?:
 - 1 - Temporary
 - 2 - CSV
 - 3 - JSON
-- q - to quit
+- 4 - SQLite
+- q - EXIT
 Enter: """
 
 database_type = False
 
-def menu():
+def menu(database_type):
     user_input = input(USER_CHOICE)
-    while user_input != "q":
+    while user_input != "b":
         if user_input == "a":
             user_nb_title = input("Title: ")
             user_nb_author = input("Author: ")
@@ -34,23 +36,37 @@ def menu():
             database_type.book_delete(user_delete_title)
         elif user_input == "l":
             database_type.book_list()
+        elif user_input == "q":
+            exit()
         else:
             print("Unexpected input, please try again.")
         user_input = input(USER_CHOICE)
 
-user_input_sel = input(user_input_selection)
 
-while user_input_sel != "q":
-    if user_input_sel == "3":
-        database_type = database_json
-        menu()
-    elif user_input_sel == "2":
-        database_type = database_csv
-        menu()
-    elif user_input_sel == "1":
-        database_type = database
-        menu()
-    else:
-        print("Unexpected input, please try again.")
+
+def database_sel():
     user_input_sel = input(user_input_selection)
+    while user_input_sel != "q":
+        if user_input_sel == "4":
+            database_type = database_sql
+            menu(database_type)
+        elif user_input_sel == "3":
+            database_type = database_json
+            menu(database_type)
+        elif user_input_sel == "2":
+            database_type = database_csv
+            menu(database_type)
+        elif user_input_sel == "1":
+            database_type = database
+            menu(database_type)
+        elif user_input_sel == "q":
+            exit()
+        else:
+            print("Unexpected input, please try again.")
+        user_input_sel = input(user_input_selection)
 
+def main():
+    database_sel()
+
+if __name__ == "__main__":
+    main()
